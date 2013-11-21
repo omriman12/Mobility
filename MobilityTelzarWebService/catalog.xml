@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/C:/workspace/WS-NPG-IT-Services-SOAP.wsdl" uri="src/conf/xml-resources/web-services/NewWebServiceFromWSDL/wsdl/WS-NPG-IT-Services-SOAP.wsdl"/>
+    <system systemId="http://omri-hp:8080/MobilityTelzarClieent/LocalService?wsdl" uri="src/conf/xml-resources/web-service-references/LocalService/wsdl/omri-hp_8080/MobilityTelzarClieent/LocalService.wsdl"/>
+    <system systemId="http://omri-hp:8080/MobilityTelzarClieent/LocalService?xsd=1" uri="src/conf/xml-resources/web-service-references/LocalService/wsdl/omri-hp_8080/MobilityTelzarClieent/LocalService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/MobilityTelzarClieent/LocalService?wsdl" uri="src/conf/xml-resources/web-service-references/LocalService/wsdl/localhost_8080/MobilityTelzarClieent/LocalService.wsdl"/>
+    <system systemId="http://localhost:8080/MobilityTelzarClient/LocalService?wsdl" uri="src/conf/xml-resources/web-service-references/LocalService/wsdl/localhost_8080/MobilityTelzarClient/LocalService.wsdl"/>
+    <system systemId="http://10.10.190.41/MobilityTelzarClient/LocalService?wsdl" uri="src/conf/xml-resources/web-service-references/LocalService/wsdl/10.10.190.41/MobilityTelzarClient/LocalService.wsdl"/>
+</catalog>
