@@ -21,7 +21,13 @@ public class DataAccess
 {  
     private Logger logger = Logger.getLogger(DataAccess.class.getName());
     private final boolean IS_DEBUG = false;
-    
+    private final String LOG_TAG = "WS-DataAccess:";
+    private final String USER_BLNG = "blng";
+    private final String PASS_BLNG = "blng";
+    private final String BLNG_SERVER = "...";
+    private final String USER_SWICH = "ipverse";
+    private final String PASS_SWICH = "ipverse";
+    private final String SWICH_SERVER = "...";
     private Connection connBlng = null;
     private Connection connSwich = null;
     private String npgReqID = null;
