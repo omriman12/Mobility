@@ -18,7 +18,7 @@ public class DataAccess {
     private final boolean IS_DEBUG = false;
     private final String USER_BLNG = "blng";
     private final String PASS_BLNG = "blng";
-    private final String BLNG_SERVER = "jdbc:oracle:thin:@10.20.190.2:1521:DBIDB";
+    private final String BLNG_SERVER = "...";
     private Connection connBlng = null;
     private String npgReqID = null;
     
