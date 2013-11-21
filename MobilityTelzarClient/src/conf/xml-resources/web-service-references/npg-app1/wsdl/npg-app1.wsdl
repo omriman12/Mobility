@@ -1,0 +1,1859 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:ns2="http://www.TELZAR.co.il/Schemas/npExecution" xmlns:ns1="http://www.TELZAR.co.il/Schemas/npReturnOut" xmlns:ns4="http://www.TELZAR.co.il/Schemas/npPortingRequest" xmlns:ns3="http://www.TELZAR.co.il/Schemas/npPortingUpdate" xmlns:tns="http://npg.namespaces.com/Schemas/TELZAR-ITNPGService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns0="http://www.TELZAR.co.il/Schemas/npQueryDn" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns5="http://www.TELZAR.co.il/Schemas/npQueryProcess" xmlns:ns6="http://www.TELZAR.co.il/Schemas/npPortingCancel" name="Untitled" targetNamespace="http://npg.namespaces.com/Schemas/TELZAR-ITNPGService">
+    <wsdl:types>
+        <xs:schema xmlns="http://www.TELZAR.co.il/Schemas/npQueryProcess" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.TELZAR.co.il/Schemas/npQueryProcess" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:element name="body">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns5:source_system"/>
+                        <xs:element ref="ns5:target_system"/>
+                        <xs:element ref="ns5:message_id"/>
+                        <xs:element ref="ns5:message_send_timestamp"/>
+                        <xs:element ref="ns5:request_type"/>
+                        <xs:element ref="ns5:request_message_id"/>
+                        <xs:element ref="ns5:porting_process" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="porting_process">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns5:npg_request_id"/>
+                        <xs:element ref="ns5:process_type"/>
+                        <xs:element ref="ns5:dn_number" minOccurs="0"/>
+                        <xs:element ref="ns5:from" minOccurs="0"/>
+                        <xs:element ref="ns5:to" minOccurs="0"/>
+                        <xs:element ref="ns5:donor"/>
+                        <xs:element ref="ns5:recipient"/>
+                        <xs:element ref="ns5:customer_id" minOccurs="0"/>
+                        <xs:element ref="ns5:form_id" minOccurs="0"/>
+                        <xs:element ref="ns5:porting_request_time" minOccurs="0"/>
+                        <xs:element ref="ns5:porting_execute_time" minOccurs="0"/>
+                        <xs:element ref="ns5:porting_route_time" minOccurs="0"/>
+                        <xs:element ref="ns5:identification_value" minOccurs="0"/>
+                        <xs:element ref="ns5:identification_value_2" minOccurs="0"/>
+                        <xs:element ref="ns5:identification_value_3" minOccurs="0"/>
+                        <xs:element ref="ns5:curr_status_code"/>
+                        <xs:element ref="ns5:curr_status_desc"/>
+                        <xs:element ref="ns5:curr_state_code"/>
+                        <xs:element ref="ns5:curr_state_desc"/>
+                        <xs:element ref="ns5:curr_state_trans_code"/>
+                        <xs:element ref="ns5:curr_state_trans_desc"/>
+                        <xs:element ref="ns5:curr_state_date"/>
+                        <xs:element ref="ns5:state" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="request">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns5:source_system"/>
+                        <xs:element ref="ns5:target_system"/>
+                        <xs:element ref="ns5:message_id"/>
+                        <xs:element ref="ns5:message_send_timestamp"/>
+                        <xs:element ref="ns5:request_type"/>
+                        <xs:element ref="ns5:customer_id"/>
+                        <xs:element ref="ns5:form_id"/>
+                        <xs:element ref="ns5:dn_choice" minOccurs="0"/>
+                        <xs:element ref="ns5:dn_type"/>
+                        <xs:element ref="ns5:from" minOccurs="0"/>
+                        <xs:element ref="ns5:to" minOccurs="0"/>
+                        <xs:element ref="ns5:npg_request_id" minOccurs="0"/>
+                        <xs:element ref="ns5:get_state_history" minOccurs="0"/>
+                        <xs:element ref="ns5:get_active_request" minOccurs="0"/>
+                        <xs:element ref="ns5:process_type" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="request_type">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="QUERY"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns5:body" minOccurs="0"/>
+                        <xs:element ref="ns5:message_status"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="state">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns5:state_id"/>
+                        <xs:element ref="ns5:state_code"/>
+                        <xs:element ref="ns5:state_desc"/>
+                        <xs:element ref="ns5:state_trans_code"/>
+                        <xs:element ref="ns5:state_trans_desc"/>
+                        <xs:element ref="ns5:state_date"/>
+                        <xs:element ref="ns5:subprocess_parent_state_id" minOccurs="0"/>
+                        <xs:element ref="ns5:subprocess_operator" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="crm_customer_id" type="xs:string"/>
+            <xs:element name="crm_form_id" type="xs:string"/>
+            <xs:element name="crm_info_1" type="xs:string"/>
+            <xs:element name="crm_info_10" type="xs:string"/>
+            <xs:element name="crm_info_2" type="xs:string"/>
+            <xs:element name="crm_info_3" type="xs:string"/>
+            <xs:element name="crm_info_4" type="xs:string"/>
+            <xs:element name="crm_info_5" type="xs:string"/>
+            <xs:element name="crm_info_6" type="xs:string"/>
+            <xs:element name="crm_info_7" type="xs:string"/>
+            <xs:element name="crm_info_8" type="xs:string"/>
+            <xs:element name="crm_info_9" type="xs:string"/>
+            <xs:element name="crm_req_id" type="xs:string"/>
+            <xs:element name="crm_request_id" type="xs:string"/>
+            <xs:element name="crm_seq_id" type="xs:string"/>
+            <xs:element name="curr_state_code" type="xs:string"/>
+            <xs:element name="curr_state_date" type="xs:string"/>
+            <xs:element name="curr_state_desc" type="xs:string"/>
+            <xs:element name="curr_state_trans_code" type="xs:string"/>
+            <xs:element name="curr_state_trans_desc" type="xs:string"/>
+            <xs:element name="curr_status_code" type="xs:string"/>
+            <xs:element name="curr_status_desc" type="xs:string"/>
+            <xs:element name="customer_id" type="xs:string"/>
+            <xs:element name="customer_type" type="xs:string"/>
+            <xs:element name="date_from" type="xs:string"/>
+            <xs:element name="date_to" type="xs:string"/>
+            <xs:element name="delayed_request_time" type="xs:string"/>
+            <xs:element name="dn_choice">
+                <xs:complexType>
+                    <xs:choice>
+                        <xs:element ref="ns5:dn_number" minOccurs="0"/>
+                        <xs:sequence>
+                            <xs:element ref="ns5:dn_from" minOccurs="0"/>
+                            <xs:element ref="ns5:dn_to" minOccurs="0"/>
+                        </xs:sequence>
+                    </xs:choice>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="dn_from" type="xs:string"/>
+            <xs:element name="dn_number" type="xs:string"/>
+            <xs:element name="dn_number_item">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns5:dn_choice"/>
+                        <xs:element ref="ns5:dn_type"/>
+                        <xs:element ref="ns5:delayed_request_time" minOccurs="0"/>
+                        <xs:element ref="ns5:porting_time" minOccurs="0"/>
+                        <xs:element ref="ns5:crm_seq_id"/>
+                        <xs:element ref="ns5:npg_request_id" minOccurs="0"/>
+                        <xs:element ref="ns5:message_status" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="dn_to" type="xs:string"/>
+            <xs:element name="dn_type" type="xs:string"/>
+            <xs:element name="donor" type="xs:string"/>
+            <xs:element name="donor_id" type="xs:string"/>
+            <xs:element name="essential_info_1" type="xs:string"/>
+            <xs:element name="essential_info_2" type="xs:string"/>
+            <xs:element name="essential_info_3" type="xs:string"/>
+            <xs:element name="essential_info_4" type="xs:string"/>
+            <xs:element name="essential_info_5" type="xs:string"/>
+            <xs:element name="event_source_id" type="xs:string"/>
+            <xs:element name="form_id" type="xs:string"/>
+            <xs:element name="from" type="xs:string"/>
+            <xs:element name="get_active_request" type="xs:string"/>
+            <xs:element name="get_state_history" type="xs:string"/>
+            <xs:element name="identification_value" type="xs:string"/>
+            <xs:element name="identification_value_2" type="xs:string"/>
+            <xs:element name="identification_value_3" type="xs:string"/>
+            <xs:element name="interface_id" type="xs:string"/>
+            <xs:element name="is_ported" type="xs:string"/>
+            <xs:element name="kosher_flag" type="xs:string"/>
+            <xs:element name="last_route_time" type="xs:string"/>
+            <xs:element name="leading_dn" type="xs:string"/>
+            <xs:element name="leading_number" type="xs:string"/>
+            <xs:element name="lrn_code" type="xs:string"/>
+            <xs:element name="message_id" type="xs:string"/>
+            <xs:element name="message_send_timestamp" type="xs:string"/>
+            <xs:element name="message_status">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns5:request_status"/>
+                        <xs:element ref="ns5:request_reason_code" minOccurs="0"/>
+                        <xs:element ref="ns5:request_reason_message" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="message_type" type="xs:string"/>
+            <xs:element name="network_id" type="xs:string"/>
+            <xs:element name="network_type" type="xs:string"/>
+            <xs:element name="new_operator" type="xs:string"/>
+            <xs:element name="npg_request_id" type="xs:string"/>
+            <xs:element name="number_type" type="xs:string"/>
+            <xs:element name="old_operator" type="xs:string"/>
+            <xs:element name="om_system" type="xs:string"/>
+            <xs:element name="order_auto_level" type="xs:string"/>
+            <xs:element name="original_switch_ind" type="xs:string"/>
+            <xs:element name="pnp1" type="xs:string"/>
+            <xs:element name="pnp2" type="xs:string"/>
+            <xs:element name="port_date" type="xs:string"/>
+            <xs:element name="port_reason" type="xs:string"/>
+            <xs:element name="portable" type="xs:string"/>
+            <xs:element name="porting_execute_time" type="xs:string"/>
+            <xs:element name="porting_request_time" type="xs:string"/>
+            <xs:element name="porting_route_time" type="xs:string"/>
+            <xs:element name="porting_time" type="xs:string"/>
+            <xs:element name="process_state_code" type="xs:string"/>
+            <xs:element name="process_state_desc" type="xs:string"/>
+            <xs:element name="process_state_trans_code" type="xs:string"/>
+            <xs:element name="process_state_trans_desc" type="xs:string"/>
+            <xs:element name="process_status_code" type="xs:string"/>
+            <xs:element name="process_status_desc" type="xs:string"/>
+            <xs:element name="process_type">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="PORT-IN"/>
+                        <xs:enumeration value="PORT-OUT"/>
+                        <xs:enumeration value="PORT-OVER"/>
+                        <xs:enumeration value="RETURN-OUT"/>
+                        <xs:enumeration value="RETURN-IN"/>
+                        <xs:enumeration value="RETURN-OVER"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="product_sub_type" type="xs:string"/>
+            <xs:element name="product_subtype" type="xs:string"/>
+            <xs:element name="product_type" type="xs:string"/>
+            <xs:element name="range">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns5:range_holder"/>
+                        <xs:element ref="ns5:dn_from"/>
+                        <xs:element ref="ns5:dn_to"/>
+                        <xs:element ref="ns5:valid_from"/>
+                        <xs:element ref="ns5:valid_to" minOccurs="0"/>
+                        <xs:element ref="ns5:network_type"/>
+                        <xs:element ref="ns5:portable"/>
+                        <xs:element ref="ns5:toll_free"/>
+                        <xs:element ref="ns5:kosher_flag"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="range_holder" type="xs:string"/>
+            <xs:element name="recipient" type="xs:string"/>
+            <xs:element name="recipient_id" type="xs:string"/>
+            <xs:element name="record_type" fixed="SPO" type="xs:string"/>
+            <xs:element name="rejection_code" type="xs:string"/>
+            <xs:element name="request_message_id" type="xs:string"/>
+            <xs:element name="request_reason_code" type="xs:string"/>
+            <xs:element name="request_reason_message" type="xs:string"/>
+            <xs:element name="request_status" type="xs:string"/>
+            <xs:element name="routing_from" type="xs:string"/>
+            <xs:element name="routing_to" type="xs:string"/>
+            <xs:element name="source_system">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="NPG"/>
+                        <xs:pattern value="BSS"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="state_code" type="xs:string"/>
+            <xs:element name="state_date" type="xs:string"/>
+            <xs:element name="state_desc" type="xs:string"/>
+            <xs:element name="state_id" type="xs:string"/>
+            <xs:element name="state_trans_code" type="xs:string"/>
+            <xs:element name="state_trans_desc" type="xs:string"/>
+            <xs:element name="subprocess_operator" type="xs:string"/>
+            <xs:element name="subprocess_parent_state_id" type="xs:string"/>
+            <xs:element name="target_system">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="NPG"/>
+                        <xs:pattern value="BSS"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="to" type="xs:string"/>
+            <xs:element name="toll_free" type="xs:string"/>
+            <xs:element name="user_id" type="xs:string"/>
+            <xs:element name="user_ps" type="xs:string"/>
+            <xs:element name="valid_from" type="xs:string"/>
+            <xs:element name="valid_to" type="xs:string"/>
+        </xs:schema>
+        <xs:schema xmlns="http://www.TELZAR.co.il/Schemas/npPortingRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.TELZAR.co.il/Schemas/npPortingRequest" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:element name="body">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns4:source_system"/>
+                        <xs:element ref="ns4:target_system"/>
+                        <xs:element ref="ns4:message_id"/>
+                        <xs:element ref="ns4:message_send_timestamp"/>
+                        <xs:element ref="ns4:request_type"/>
+                        <xs:element ref="ns4:request_message_id"/>
+                        <xs:element ref="ns4:crm_customer_id"/>
+                        <xs:element ref="ns4:crm_request_id"/>
+                        <xs:element ref="ns4:dn_number_item" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="request">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns4:source_system"/>
+                        <xs:element ref="ns4:target_system"/>
+                        <xs:element ref="ns4:message_id"/>
+                        <xs:element ref="ns4:message_send_timestamp"/>
+                        <xs:element ref="ns4:request_type"/>
+                        <xs:element ref="ns4:crm_customer_id"/>
+                        <xs:element ref="ns4:crm_request_id"/>
+                        <xs:element ref="ns4:donor_id"/>
+                        <xs:element ref="ns4:identification_value"/>
+                        <xs:element ref="ns4:identification_value_2" minOccurs="0"/>
+                        <xs:element ref="ns4:identification_value_3" minOccurs="0"/>
+                        <xs:element ref="ns4:dn_number_item" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="request_type">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="PIR"/>
+                        <xs:pattern value="PVC"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns4:body" minOccurs="0"/>
+                        <xs:element ref="ns4:message_status"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="crm_customer_id" type="xs:string"/>
+            <xs:element name="crm_form_id" type="xs:string"/>
+            <xs:element name="crm_info_1" type="xs:string"/>
+            <xs:element name="crm_info_10" type="xs:string"/>
+            <xs:element name="crm_info_2" type="xs:string"/>
+            <xs:element name="crm_info_3" type="xs:string"/>
+            <xs:element name="crm_info_4" type="xs:string"/>
+            <xs:element name="crm_info_5" type="xs:string"/>
+            <xs:element name="crm_info_6" type="xs:string"/>
+            <xs:element name="crm_info_7" type="xs:string"/>
+            <xs:element name="crm_info_8" type="xs:string"/>
+            <xs:element name="crm_info_9" type="xs:string"/>
+            <xs:element name="crm_req_id" type="xs:string"/>
+            <xs:element name="crm_request_id" type="xs:string"/>
+            <xs:element name="crm_seq_id" type="xs:string"/>
+            <xs:element name="curr_state_code" type="xs:string"/>
+            <xs:element name="curr_state_date" type="xs:string"/>
+            <xs:element name="curr_state_desc" type="xs:string"/>
+            <xs:element name="curr_state_trans_code" type="xs:string"/>
+            <xs:element name="curr_state_trans_desc" type="xs:string"/>
+            <xs:element name="curr_status_code" type="xs:string"/>
+            <xs:element name="curr_status_desc" type="xs:string"/>
+            <xs:element name="customer_id" type="xs:string"/>
+            <xs:element name="customer_type" type="xs:string"/>
+            <xs:element name="date_from" type="xs:string"/>
+            <xs:element name="date_to" type="xs:string"/>
+            <xs:element name="delayed_request_time" type="xs:string"/>
+            <xs:element name="dn_choice">
+                <xs:complexType>
+                    <xs:choice>
+                        <xs:element ref="ns4:dn_number" minOccurs="0"/>
+                        <xs:sequence>
+                            <xs:element ref="ns4:dn_from" minOccurs="0"/>
+                            <xs:element ref="ns4:dn_to" minOccurs="0"/>
+                        </xs:sequence>
+                    </xs:choice>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="dn_from" type="xs:string"/>
+            <xs:element name="dn_number" type="xs:string"/>
+            <xs:element name="dn_number_item">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns4:dn_choice"/>
+                        <xs:element ref="ns4:dn_type"/>
+                        <xs:element ref="ns4:delayed_request_time" minOccurs="0"/>
+                        <xs:element ref="ns4:porting_time" minOccurs="0"/>
+                        <xs:element ref="ns4:crm_seq_id"/>
+                        <xs:element ref="ns4:npg_request_id" minOccurs="0"/>
+                        <xs:element ref="ns4:message_status" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="dn_to" type="xs:string"/>
+            <xs:element name="dn_type" type="xs:string"/>
+            <xs:element name="donor" type="xs:string"/>
+            <xs:element name="donor_id" type="xs:string"/>
+            <xs:element name="essential_info_1" type="xs:string"/>
+            <xs:element name="essential_info_2" type="xs:string"/>
+            <xs:element name="essential_info_3" type="xs:string"/>
+            <xs:element name="essential_info_4" type="xs:string"/>
+            <xs:element name="essential_info_5" type="xs:string"/>
+            <xs:element name="event_source_id" type="xs:string"/>
+            <xs:element name="form_id" type="xs:string"/>
+            <xs:element name="from" type="xs:string"/>
+            <xs:element name="get_active_request" type="xs:string"/>
+            <xs:element name="get_state_history" type="xs:string"/>
+            <xs:element name="identification_value" type="xs:string"/>
+            <xs:element name="identification_value_2" type="xs:string"/>
+            <xs:element name="identification_value_3" type="xs:string"/>
+            <xs:element name="interface_id" type="xs:string"/>
+            <xs:element name="is_ported" type="xs:string"/>
+            <xs:element name="kosher_flag" type="xs:string"/>
+            <xs:element name="last_route_time" type="xs:string"/>
+            <xs:element name="leading_dn" type="xs:string"/>
+            <xs:element name="leading_number" type="xs:string"/>
+            <xs:element name="lrn_code" type="xs:string"/>
+            <xs:element name="message_id" type="xs:string"/>
+            <xs:element name="message_send_timestamp" type="xs:string"/>
+            <xs:element name="message_status">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns4:request_status"/>
+                        <xs:element ref="ns4:request_reason_code" minOccurs="0"/>
+                        <xs:element ref="ns4:request_reason_message" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="message_type" type="xs:string"/>
+            <xs:element name="network_id" type="xs:string"/>
+            <xs:element name="network_type" type="xs:string"/>
+            <xs:element name="new_operator" type="xs:string"/>
+            <xs:element name="npg_request_id" type="xs:string"/>
+            <xs:element name="number_type" type="xs:string"/>
+            <xs:element name="old_operator" type="xs:string"/>
+            <xs:element name="om_system" type="xs:string"/>
+            <xs:element name="order_auto_level" type="xs:string"/>
+            <xs:element name="original_switch_ind" type="xs:string"/>
+            <xs:element name="pnp1" type="xs:string"/>
+            <xs:element name="pnp2" type="xs:string"/>
+            <xs:element name="port_date" type="xs:string"/>
+            <xs:element name="port_reason" type="xs:string"/>
+            <xs:element name="portable" type="xs:string"/>
+            <xs:element name="porting_execute_time" type="xs:string"/>
+            <xs:element name="porting_request_time" type="xs:string"/>
+            <xs:element name="porting_route_time" type="xs:string"/>
+            <xs:element name="porting_time" type="xs:string"/>
+            <xs:element name="process_state_code" type="xs:string"/>
+            <xs:element name="process_state_desc" type="xs:string"/>
+            <xs:element name="process_state_trans_code" type="xs:string"/>
+            <xs:element name="process_state_trans_desc" type="xs:string"/>
+            <xs:element name="process_status_code" type="xs:string"/>
+            <xs:element name="process_status_desc" type="xs:string"/>
+            <xs:element name="process_type">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="PORT-IN"/>
+                        <xs:enumeration value="PORT-OUT"/>
+                        <xs:enumeration value="PORT-OVER"/>
+                        <xs:enumeration value="RETURN-OUT"/>
+                        <xs:enumeration value="RETURN-IN"/>
+                        <xs:enumeration value="RETURN-OVER"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="product_sub_type" type="xs:string"/>
+            <xs:element name="product_subtype" type="xs:string"/>
+            <xs:element name="product_type" type="xs:string"/>
+            <xs:element name="range">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns4:range_holder"/>
+                        <xs:element ref="ns4:dn_from"/>
+                        <xs:element ref="ns4:dn_to"/>
+                        <xs:element ref="ns4:valid_from"/>
+                        <xs:element ref="ns4:valid_to" minOccurs="0"/>
+                        <xs:element ref="ns4:network_type"/>
+                        <xs:element ref="ns4:portable"/>
+                        <xs:element ref="ns4:toll_free"/>
+                        <xs:element ref="ns4:kosher_flag"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="range_holder" type="xs:string"/>
+            <xs:element name="recipient" type="xs:string"/>
+            <xs:element name="recipient_id" type="xs:string"/>
+            <xs:element name="record_type" fixed="SPO" type="xs:string"/>
+            <xs:element name="rejection_code" type="xs:string"/>
+            <xs:element name="request_message_id" type="xs:string"/>
+            <xs:element name="request_reason_code" type="xs:string"/>
+            <xs:element name="request_reason_message" type="xs:string"/>
+            <xs:element name="request_status" type="xs:string"/>
+            <xs:element name="routing_from" type="xs:string"/>
+            <xs:element name="routing_to" type="xs:string"/>
+            <xs:element name="source_system">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="NPG"/>
+                        <xs:pattern value="BSS"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="state_code" type="xs:string"/>
+            <xs:element name="state_date" type="xs:string"/>
+            <xs:element name="state_desc" type="xs:string"/>
+            <xs:element name="state_id" type="xs:string"/>
+            <xs:element name="state_trans_code" type="xs:string"/>
+            <xs:element name="state_trans_desc" type="xs:string"/>
+            <xs:element name="subprocess_operator" type="xs:string"/>
+            <xs:element name="subprocess_parent_state_id" type="xs:string"/>
+            <xs:element name="target_system">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="NPG"/>
+                        <xs:pattern value="BSS"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="to" type="xs:string"/>
+            <xs:element name="toll_free" type="xs:string"/>
+            <xs:element name="user_id" type="xs:string"/>
+            <xs:element name="user_ps" type="xs:string"/>
+            <xs:element name="valid_from" type="xs:string"/>
+            <xs:element name="valid_to" type="xs:string"/>
+        </xs:schema>
+        <xs:schema xmlns="http://www.TELZAR.co.il/Schemas/npExecution" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.TELZAR.co.il/Schemas/npExecution" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:element name="Request">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns2:source_system"/>
+                        <xs:element ref="ns2:target_system"/>
+                        <xs:element ref="ns2:message_id" minOccurs="0"/>
+                        <xs:element ref="ns2:message_send_timestamp"/>
+                        <xs:element ref="ns2:request_type" minOccurs="0"/>
+                        <xs:element ref="ns2:crm_customer_id" minOccurs="0"/>
+                        <xs:element ref="ns2:crm_request_id" minOccurs="0"/>
+                        <xs:element ref="ns2:dn_choice"/>
+                        <xs:element ref="ns2:dn_type" minOccurs="0"/>
+                        <xs:element ref="ns2:new_operator" minOccurs="0"/>
+                        <xs:element ref="ns2:crm_seq_id" minOccurs="0"/>
+                        <xs:element ref="ns2:npg_request_id"/>
+                        <xs:element ref="ns2:action" minOccurs="0"/>
+                        <xs:element ref="ns2:message_status" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Response">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns2:message_status"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="action">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="ACTIVATE"/>
+                        <xs:pattern value="DEACTIVATE"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="body">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns2:source_system"/>
+                        <xs:element ref="ns2:target_system"/>
+                        <xs:element ref="ns2:message_id"/>
+                        <xs:element ref="ns2:message_send_timestamp"/>
+                        <xs:element ref="ns2:request_type"/>
+                        <xs:element ref="ns2:request_message_id"/>
+                        <xs:element ref="ns2:crm_customer_id"/>
+                        <xs:element ref="ns2:crm_request_id"/>
+                        <xs:element ref="ns2:dn_choice"/>
+                        <xs:element ref="ns2:dn_type"/>
+                        <xs:element ref="ns2:new_operator"/>
+                        <xs:element ref="ns2:crm_seq_id"/>
+                        <xs:element ref="ns2:npg_request_id"/>
+                        <xs:element ref="ns2:action"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="request_type">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="EXECUTE"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="crm_customer_id" type="xs:string"/>
+            <xs:element name="crm_form_id" type="xs:string"/>
+            <xs:element name="crm_info_1" type="xs:string"/>
+            <xs:element name="crm_info_10" type="xs:string"/>
+            <xs:element name="crm_info_2" type="xs:string"/>
+            <xs:element name="crm_info_3" type="xs:string"/>
+            <xs:element name="crm_info_4" type="xs:string"/>
+            <xs:element name="crm_info_5" type="xs:string"/>
+            <xs:element name="crm_info_6" type="xs:string"/>
+            <xs:element name="crm_info_7" type="xs:string"/>
+            <xs:element name="crm_info_8" type="xs:string"/>
+            <xs:element name="crm_info_9" type="xs:string"/>
+            <xs:element name="crm_req_id" type="xs:string"/>
+            <xs:element name="crm_request_id" type="xs:string"/>
+            <xs:element name="crm_seq_id" type="xs:string"/>
+            <xs:element name="curr_state_code" type="xs:string"/>
+            <xs:element name="curr_state_date" type="xs:string"/>
+            <xs:element name="curr_state_desc" type="xs:string"/>
+            <xs:element name="curr_state_trans_code" type="xs:string"/>
+            <xs:element name="curr_state_trans_desc" type="xs:string"/>
+            <xs:element name="curr_status_code" type="xs:string"/>
+            <xs:element name="curr_status_desc" type="xs:string"/>
+            <xs:element name="customer_id" type="xs:string"/>
+            <xs:element name="customer_type" type="xs:string"/>
+            <xs:element name="date_from" type="xs:string"/>
+            <xs:element name="date_to" type="xs:string"/>
+            <xs:element name="delayed_request_time" type="xs:string"/>
+            <xs:element name="dn_choice">
+                <xs:complexType>
+                    <xs:choice>
+                        <xs:element ref="ns2:dn_number" minOccurs="0"/>
+                        <xs:sequence>
+                            <xs:element ref="ns2:dn_from" minOccurs="0"/>
+                            <xs:element ref="ns2:dn_to" minOccurs="0"/>
+                        </xs:sequence>
+                    </xs:choice>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="dn_from" type="xs:string"/>
+            <xs:element name="dn_number" type="xs:string"/>
+            <xs:element name="dn_number_item">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns2:dn_choice"/>
+                        <xs:element ref="ns2:dn_type"/>
+                        <xs:element ref="ns2:delayed_request_time" minOccurs="0"/>
+                        <xs:element ref="ns2:porting_time" minOccurs="0"/>
+                        <xs:element ref="ns2:crm_seq_id"/>
+                        <xs:element ref="ns2:npg_request_id" minOccurs="0"/>
+                        <xs:element ref="ns2:message_status" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="dn_to" type="xs:string"/>
+            <xs:element name="dn_type" type="xs:string"/>
+            <xs:element name="donor" type="xs:string"/>
+            <xs:element name="donor_id" type="xs:string"/>
+            <xs:element name="essential_info_1" type="xs:string"/>
+            <xs:element name="essential_info_2" type="xs:string"/>
+            <xs:element name="essential_info_3" type="xs:string"/>
+            <xs:element name="essential_info_4" type="xs:string"/>
+            <xs:element name="essential_info_5" type="xs:string"/>
+            <xs:element name="event_source_id" type="xs:string"/>
+            <xs:element name="form_id" type="xs:string"/>
+            <xs:element name="from" type="xs:string"/>
+            <xs:element name="get_active_request" type="xs:string"/>
+            <xs:element name="get_state_history" type="xs:string"/>
+            <xs:element name="identification_value" type="xs:string"/>
+            <xs:element name="identification_value_2" type="xs:string"/>
+            <xs:element name="identification_value_3" type="xs:string"/>
+            <xs:element name="interface_id" type="xs:string"/>
+            <xs:element name="is_ported" type="xs:string"/>
+            <xs:element name="kosher_flag" type="xs:string"/>
+            <xs:element name="last_route_time" type="xs:string"/>
+            <xs:element name="leading_dn" type="xs:string"/>
+            <xs:element name="leading_number" type="xs:string"/>
+            <xs:element name="lrn_code" type="xs:string"/>
+            <xs:element name="message_id" type="xs:string"/>
+            <xs:element name="message_send_timestamp" type="xs:string"/>
+            <xs:element name="message_status">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns2:request_status"/>
+                        <xs:element ref="ns2:request_reason_code" minOccurs="0"/>
+                        <xs:element ref="ns2:request_reason_message" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="message_type" type="xs:string"/>
+            <xs:element name="network_id" type="xs:string"/>
+            <xs:element name="network_type" type="xs:string"/>
+            <xs:element name="new_operator" type="xs:string"/>
+            <xs:element name="npg_request_id" type="xs:string"/>
+            <xs:element name="number_type" type="xs:string"/>
+            <xs:element name="old_operator" type="xs:string"/>
+            <xs:element name="om_system" type="xs:string"/>
+            <xs:element name="order_auto_level" type="xs:string"/>
+            <xs:element name="original_switch_ind" type="xs:string"/>
+            <xs:element name="pnp1" type="xs:string"/>
+            <xs:element name="pnp2" type="xs:string"/>
+            <xs:element name="port_date" type="xs:string"/>
+            <xs:element name="port_reason" type="xs:string"/>
+            <xs:element name="portable" type="xs:string"/>
+            <xs:element name="porting_execute_time" type="xs:string"/>
+            <xs:element name="porting_request_time" type="xs:string"/>
+            <xs:element name="porting_route_time" type="xs:string"/>
+            <xs:element name="porting_time" type="xs:string"/>
+            <xs:element name="process_state_code" type="xs:string"/>
+            <xs:element name="process_state_desc" type="xs:string"/>
+            <xs:element name="process_state_trans_code" type="xs:string"/>
+            <xs:element name="process_state_trans_desc" type="xs:string"/>
+            <xs:element name="process_status_code" type="xs:string"/>
+            <xs:element name="process_status_desc" type="xs:string"/>
+            <xs:element name="process_type">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="PORT-IN"/>
+                        <xs:enumeration value="PORT-OUT"/>
+                        <xs:enumeration value="PORT-OVER"/>
+                        <xs:enumeration value="RETURN-OUT"/>
+                        <xs:enumeration value="RETURN-IN"/>
+                        <xs:enumeration value="RETURN-OVER"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="product_sub_type" type="xs:string"/>
+            <xs:element name="product_subtype" type="xs:string"/>
+            <xs:element name="product_type" type="xs:string"/>
+            <xs:element name="range">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns2:range_holder"/>
+                        <xs:element ref="ns2:dn_from"/>
+                        <xs:element ref="ns2:dn_to"/>
+                        <xs:element ref="ns2:valid_from"/>
+                        <xs:element ref="ns2:valid_to" minOccurs="0"/>
+                        <xs:element ref="ns2:network_type"/>
+                        <xs:element ref="ns2:portable"/>
+                        <xs:element ref="ns2:toll_free"/>
+                        <xs:element ref="ns2:kosher_flag"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="range_holder" type="xs:string"/>
+            <xs:element name="recipient" type="xs:string"/>
+            <xs:element name="recipient_id" type="xs:string"/>
+            <xs:element name="record_type" fixed="SPO" type="xs:string"/>
+            <xs:element name="rejection_code" type="xs:string"/>
+            <xs:element name="request_message_id" type="xs:string"/>
+            <xs:element name="request_reason_code" type="xs:string"/>
+            <xs:element name="request_reason_message" type="xs:string"/>
+            <xs:element name="request_status" type="xs:string"/>
+            <xs:element name="routing_from" type="xs:string"/>
+            <xs:element name="routing_to" type="xs:string"/>
+            <xs:element name="source_system">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="NPG"/>
+                        <xs:pattern value="BSS"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="state_code" type="xs:string"/>
+            <xs:element name="state_date" type="xs:string"/>
+            <xs:element name="state_desc" type="xs:string"/>
+            <xs:element name="state_id" type="xs:string"/>
+            <xs:element name="state_trans_code" type="xs:string"/>
+            <xs:element name="state_trans_desc" type="xs:string"/>
+            <xs:element name="subprocess_operator" type="xs:string"/>
+            <xs:element name="subprocess_parent_state_id" type="xs:string"/>
+            <xs:element name="target_system">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="NPG"/>
+                        <xs:pattern value="BSS"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="to" type="xs:string"/>
+            <xs:element name="toll_free" type="xs:string"/>
+            <xs:element name="user_id" type="xs:string"/>
+            <xs:element name="user_ps" type="xs:string"/>
+            <xs:element name="valid_from" type="xs:string"/>
+            <xs:element name="valid_to" type="xs:string"/>
+        </xs:schema>
+        <xs:schema xmlns="http://www.TELZAR.co.il/Schemas/npReturnOut" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.TELZAR.co.il/Schemas/npReturnOut" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:element name="body">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns1:source_system"/>
+                        <xs:element ref="ns1:target_system"/>
+                        <xs:element ref="ns1:message_id"/>
+                        <xs:element ref="ns1:message_send_timestamp"/>
+                        <xs:element ref="ns1:request_type"/>
+                        <xs:element ref="ns1:request_message_id"/>
+                        <xs:element ref="ns1:dn_item" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="dn_item">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns1:dn_number"/>
+                        <xs:element ref="ns1:npg_request_id"/>
+                        <xs:element ref="ns1:message_status"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="request">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns1:source_system"/>
+                        <xs:element ref="ns1:target_system"/>
+                        <xs:element ref="ns1:message_id"/>
+                        <xs:element ref="ns1:message_send_timestamp"/>
+                        <xs:element ref="ns1:request_type"/>
+                        <xs:element ref="ns1:dn_number" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="request_type">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="RETURN"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns1:body" minOccurs="0"/>
+                        <xs:element ref="ns1:message_status"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="crm_customer_id" type="xs:string"/>
+            <xs:element name="crm_form_id" type="xs:string"/>
+            <xs:element name="crm_info_1" type="xs:string"/>
+            <xs:element name="crm_info_10" type="xs:string"/>
+            <xs:element name="crm_info_2" type="xs:string"/>
+            <xs:element name="crm_info_3" type="xs:string"/>
+            <xs:element name="crm_info_4" type="xs:string"/>
+            <xs:element name="crm_info_5" type="xs:string"/>
+            <xs:element name="crm_info_6" type="xs:string"/>
+            <xs:element name="crm_info_7" type="xs:string"/>
+            <xs:element name="crm_info_8" type="xs:string"/>
+            <xs:element name="crm_info_9" type="xs:string"/>
+            <xs:element name="crm_req_id" type="xs:string"/>
+            <xs:element name="crm_request_id" type="xs:string"/>
+            <xs:element name="crm_seq_id" type="xs:string"/>
+            <xs:element name="curr_state_code" type="xs:string"/>
+            <xs:element name="curr_state_date" type="xs:string"/>
+            <xs:element name="curr_state_desc" type="xs:string"/>
+            <xs:element name="curr_state_trans_code" type="xs:string"/>
+            <xs:element name="curr_state_trans_desc" type="xs:string"/>
+            <xs:element name="curr_status_code" type="xs:string"/>
+            <xs:element name="curr_status_desc" type="xs:string"/>
+            <xs:element name="customer_id" type="xs:string"/>
+            <xs:element name="customer_type" type="xs:string"/>
+            <xs:element name="date_from" type="xs:string"/>
+            <xs:element name="date_to" type="xs:string"/>
+            <xs:element name="delayed_request_time" type="xs:string"/>
+            <xs:element name="dn_choice">
+                <xs:complexType>
+                    <xs:choice>
+                        <xs:element ref="ns1:dn_number" minOccurs="0"/>
+                        <xs:sequence>
+                            <xs:element ref="ns1:dn_from" minOccurs="0"/>
+                            <xs:element ref="ns1:dn_to" minOccurs="0"/>
+                        </xs:sequence>
+                    </xs:choice>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="dn_from" type="xs:string"/>
+            <xs:element name="dn_number" type="xs:string"/>
+            <xs:element name="dn_number_item">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns1:dn_choice"/>
+                        <xs:element ref="ns1:dn_type"/>
+                        <xs:element ref="ns1:delayed_request_time" minOccurs="0"/>
+                        <xs:element ref="ns1:porting_time" minOccurs="0"/>
+                        <xs:element ref="ns1:crm_seq_id"/>
+                        <xs:element ref="ns1:npg_request_id" minOccurs="0"/>
+                        <xs:element ref="ns1:message_status" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="dn_to" type="xs:string"/>
+            <xs:element name="dn_type" type="xs:string"/>
+            <xs:element name="donor" type="xs:string"/>
+            <xs:element name="donor_id" type="xs:string"/>
+            <xs:element name="essential_info_1" type="xs:string"/>
+            <xs:element name="essential_info_2" type="xs:string"/>
+            <xs:element name="essential_info_3" type="xs:string"/>
+            <xs:element name="essential_info_4" type="xs:string"/>
+            <xs:element name="essential_info_5" type="xs:string"/>
+            <xs:element name="event_source_id" type="xs:string"/>
+            <xs:element name="form_id" type="xs:string"/>
+            <xs:element name="from" type="xs:string"/>
+            <xs:element name="get_active_request" type="xs:string"/>
+            <xs:element name="get_state_history" type="xs:string"/>
+            <xs:element name="identification_value" type="xs:string"/>
+            <xs:element name="identification_value_2" type="xs:string"/>
+            <xs:element name="identification_value_3" type="xs:string"/>
+            <xs:element name="interface_id" type="xs:string"/>
+            <xs:element name="is_ported" type="xs:string"/>
+            <xs:element name="kosher_flag" type="xs:string"/>
+            <xs:element name="last_route_time" type="xs:string"/>
+            <xs:element name="leading_dn" type="xs:string"/>
+            <xs:element name="leading_number" type="xs:string"/>
+            <xs:element name="lrn_code" type="xs:string"/>
+            <xs:element name="message_id" type="xs:string"/>
+            <xs:element name="message_send_timestamp" type="xs:string"/>
+            <xs:element name="message_status">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns1:request_status"/>
+                        <xs:element ref="ns1:request_reason_code" minOccurs="0"/>
+                        <xs:element ref="ns1:request_reason_message" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="message_type" type="xs:string"/>
+            <xs:element name="network_id" type="xs:string"/>
+            <xs:element name="network_type" type="xs:string"/>
+            <xs:element name="new_operator" type="xs:string"/>
+            <xs:element name="npg_request_id" type="xs:string"/>
+            <xs:element name="number_type" type="xs:string"/>
+            <xs:element name="old_operator" type="xs:string"/>
+            <xs:element name="om_system" type="xs:string"/>
+            <xs:element name="order_auto_level" type="xs:string"/>
+            <xs:element name="original_switch_ind" type="xs:string"/>
+            <xs:element name="pnp1" type="xs:string"/>
+            <xs:element name="pnp2" type="xs:string"/>
+            <xs:element name="port_date" type="xs:string"/>
+            <xs:element name="port_reason" type="xs:string"/>
+            <xs:element name="portable" type="xs:string"/>
+            <xs:element name="porting_execute_time" type="xs:string"/>
+            <xs:element name="porting_request_time" type="xs:string"/>
+            <xs:element name="porting_route_time" type="xs:string"/>
+            <xs:element name="porting_time" type="xs:string"/>
+            <xs:element name="process_state_code" type="xs:string"/>
+            <xs:element name="process_state_desc" type="xs:string"/>
+            <xs:element name="process_state_trans_code" type="xs:string"/>
+            <xs:element name="process_state_trans_desc" type="xs:string"/>
+            <xs:element name="process_status_code" type="xs:string"/>
+            <xs:element name="process_status_desc" type="xs:string"/>
+            <xs:element name="process_type">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="PORT-IN"/>
+                        <xs:enumeration value="PORT-OUT"/>
+                        <xs:enumeration value="PORT-OVER"/>
+                        <xs:enumeration value="RETURN-OUT"/>
+                        <xs:enumeration value="RETURN-IN"/>
+                        <xs:enumeration value="RETURN-OVER"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="product_sub_type" type="xs:string"/>
+            <xs:element name="product_subtype" type="xs:string"/>
+            <xs:element name="product_type" type="xs:string"/>
+            <xs:element name="range">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns1:range_holder"/>
+                        <xs:element ref="ns1:dn_from"/>
+                        <xs:element ref="ns1:dn_to"/>
+                        <xs:element ref="ns1:valid_from"/>
+                        <xs:element ref="ns1:valid_to" minOccurs="0"/>
+                        <xs:element ref="ns1:network_type"/>
+                        <xs:element ref="ns1:portable"/>
+                        <xs:element ref="ns1:toll_free"/>
+                        <xs:element ref="ns1:kosher_flag"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="range_holder" type="xs:string"/>
+            <xs:element name="recipient" type="xs:string"/>
+            <xs:element name="recipient_id" type="xs:string"/>
+            <xs:element name="record_type" fixed="SPO" type="xs:string"/>
+            <xs:element name="rejection_code" type="xs:string"/>
+            <xs:element name="request_message_id" type="xs:string"/>
+            <xs:element name="request_reason_code" type="xs:string"/>
+            <xs:element name="request_reason_message" type="xs:string"/>
+            <xs:element name="request_status" type="xs:string"/>
+            <xs:element name="routing_from" type="xs:string"/>
+            <xs:element name="routing_to" type="xs:string"/>
+            <xs:element name="source_system">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="NPG"/>
+                        <xs:pattern value="BSS"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="state_code" type="xs:string"/>
+            <xs:element name="state_date" type="xs:string"/>
+            <xs:element name="state_desc" type="xs:string"/>
+            <xs:element name="state_id" type="xs:string"/>
+            <xs:element name="state_trans_code" type="xs:string"/>
+            <xs:element name="state_trans_desc" type="xs:string"/>
+            <xs:element name="subprocess_operator" type="xs:string"/>
+            <xs:element name="subprocess_parent_state_id" type="xs:string"/>
+            <xs:element name="target_system">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="NPG"/>
+                        <xs:pattern value="BSS"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="to" type="xs:string"/>
+            <xs:element name="toll_free" type="xs:string"/>
+            <xs:element name="user_id" type="xs:string"/>
+            <xs:element name="user_ps" type="xs:string"/>
+            <xs:element name="valid_from" type="xs:string"/>
+            <xs:element name="valid_to" type="xs:string"/>
+        </xs:schema>
+        <xs:schema xmlns="http://www.TELZAR.co.il/Schemas/npPortingCancel" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.TELZAR.co.il/Schemas/npPortingCancel" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:element name="body">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns6:source_system"/>
+                        <xs:element ref="ns6:target_system"/>
+                        <xs:element ref="ns6:message_id"/>
+                        <xs:element ref="ns6:message_send_timestamp"/>
+                        <xs:element ref="ns6:request_type"/>
+                        <xs:element ref="ns6:request_message_id"/>
+                        <xs:element ref="ns6:crm_customer_id"/>
+                        <xs:element ref="ns6:crm_request_id"/>
+                        <xs:element ref="ns6:dn_choice"/>
+                        <xs:element ref="ns6:dn_type"/>
+                        <xs:element ref="ns6:crm_seq_id"/>
+                        <xs:element ref="ns6:npg_request_id"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="request">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns6:source_system"/>
+                        <xs:element ref="ns6:target_system"/>
+                        <xs:element ref="ns6:message_id"/>
+                        <xs:element ref="ns6:message_send_timestamp"/>
+                        <xs:element ref="ns6:request_type"/>
+                        <xs:element ref="ns6:crm_customer_id"/>
+                        <xs:element ref="ns6:crm_request_id"/>
+                        <xs:element ref="ns6:dn_choice"/>
+                        <xs:element ref="ns6:dn_type"/>
+                        <xs:element ref="ns6:crm_seq_id"/>
+                        <xs:element ref="ns6:npg_request_id"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="request_type">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="CANCEL"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns6:body" minOccurs="0"/>
+                        <xs:element ref="ns6:message_status"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="crm_customer_id" type="xs:string"/>
+            <xs:element name="crm_form_id" type="xs:string"/>
+            <xs:element name="crm_info_1" type="xs:string"/>
+            <xs:element name="crm_info_10" type="xs:string"/>
+            <xs:element name="crm_info_2" type="xs:string"/>
+            <xs:element name="crm_info_3" type="xs:string"/>
+            <xs:element name="crm_info_4" type="xs:string"/>
+            <xs:element name="crm_info_5" type="xs:string"/>
+            <xs:element name="crm_info_6" type="xs:string"/>
+            <xs:element name="crm_info_7" type="xs:string"/>
+            <xs:element name="crm_info_8" type="xs:string"/>
+            <xs:element name="crm_info_9" type="xs:string"/>
+            <xs:element name="crm_req_id" type="xs:string"/>
+            <xs:element name="crm_request_id" type="xs:string"/>
+            <xs:element name="crm_seq_id" type="xs:string"/>
+            <xs:element name="curr_state_code" type="xs:string"/>
+            <xs:element name="curr_state_date" type="xs:string"/>
+            <xs:element name="curr_state_desc" type="xs:string"/>
+            <xs:element name="curr_state_trans_code" type="xs:string"/>
+            <xs:element name="curr_state_trans_desc" type="xs:string"/>
+            <xs:element name="curr_status_code" type="xs:string"/>
+            <xs:element name="curr_status_desc" type="xs:string"/>
+            <xs:element name="customer_id" type="xs:string"/>
+            <xs:element name="customer_type" type="xs:string"/>
+            <xs:element name="date_from" type="xs:string"/>
+            <xs:element name="date_to" type="xs:string"/>
+            <xs:element name="delayed_request_time" type="xs:string"/>
+            <xs:element name="dn_choice">
+                <xs:complexType>
+                    <xs:choice>
+                        <xs:element ref="ns6:dn_number" minOccurs="0"/>
+                        <xs:sequence>
+                            <xs:element ref="ns6:dn_from" minOccurs="0"/>
+                            <xs:element ref="ns6:dn_to" minOccurs="0"/>
+                        </xs:sequence>
+                    </xs:choice>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="dn_from" type="xs:string"/>
+            <xs:element name="dn_number" type="xs:string"/>
+            <xs:element name="dn_number_item">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns6:dn_choice"/>
+                        <xs:element ref="ns6:dn_type"/>
+                        <xs:element ref="ns6:delayed_request_time" minOccurs="0"/>
+                        <xs:element ref="ns6:porting_time" minOccurs="0"/>
+                        <xs:element ref="ns6:crm_seq_id"/>
+                        <xs:element ref="ns6:npg_request_id" minOccurs="0"/>
+                        <xs:element ref="ns6:message_status" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="dn_to" type="xs:string"/>
+            <xs:element name="dn_type" type="xs:string"/>
+            <xs:element name="donor" type="xs:string"/>
+            <xs:element name="donor_id" type="xs:string"/>
+            <xs:element name="essential_info_1" type="xs:string"/>
+            <xs:element name="essential_info_2" type="xs:string"/>
+            <xs:element name="essential_info_3" type="xs:string"/>
+            <xs:element name="essential_info_4" type="xs:string"/>
+            <xs:element name="essential_info_5" type="xs:string"/>
+            <xs:element name="event_source_id" type="xs:string"/>
+            <xs:element name="form_id" type="xs:string"/>
+            <xs:element name="from" type="xs:string"/>
+            <xs:element name="get_active_request" type="xs:string"/>
+            <xs:element name="get_state_history" type="xs:string"/>
+            <xs:element name="identification_value" type="xs:string"/>
+            <xs:element name="identification_value_2" type="xs:string"/>
+            <xs:element name="identification_value_3" type="xs:string"/>
+            <xs:element name="interface_id" type="xs:string"/>
+            <xs:element name="is_ported" type="xs:string"/>
+            <xs:element name="kosher_flag" type="xs:string"/>
+            <xs:element name="last_route_time" type="xs:string"/>
+            <xs:element name="leading_dn" type="xs:string"/>
+            <xs:element name="leading_number" type="xs:string"/>
+            <xs:element name="lrn_code" type="xs:string"/>
+            <xs:element name="message_id" type="xs:string"/>
+            <xs:element name="message_send_timestamp" type="xs:string"/>
+            <xs:element name="message_status">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns6:request_status"/>
+                        <xs:element ref="ns6:request_reason_code" minOccurs="0"/>
+                        <xs:element ref="ns6:request_reason_message" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="message_type" type="xs:string"/>
+            <xs:element name="network_id" type="xs:string"/>
+            <xs:element name="network_type" type="xs:string"/>
+            <xs:element name="new_operator" type="xs:string"/>
+            <xs:element name="npg_request_id" type="xs:string"/>
+            <xs:element name="number_type" type="xs:string"/>
+            <xs:element name="old_operator" type="xs:string"/>
+            <xs:element name="om_system" type="xs:string"/>
+            <xs:element name="order_auto_level" type="xs:string"/>
+            <xs:element name="original_switch_ind" type="xs:string"/>
+            <xs:element name="pnp1" type="xs:string"/>
+            <xs:element name="pnp2" type="xs:string"/>
+            <xs:element name="port_date" type="xs:string"/>
+            <xs:element name="port_reason" type="xs:string"/>
+            <xs:element name="portable" type="xs:string"/>
+            <xs:element name="porting_execute_time" type="xs:string"/>
+            <xs:element name="porting_request_time" type="xs:string"/>
+            <xs:element name="porting_route_time" type="xs:string"/>
+            <xs:element name="porting_time" type="xs:string"/>
+            <xs:element name="process_state_code" type="xs:string"/>
+            <xs:element name="process_state_desc" type="xs:string"/>
+            <xs:element name="process_state_trans_code" type="xs:string"/>
+            <xs:element name="process_state_trans_desc" type="xs:string"/>
+            <xs:element name="process_status_code" type="xs:string"/>
+            <xs:element name="process_status_desc" type="xs:string"/>
+            <xs:element name="process_type">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="PORT-IN"/>
+                        <xs:enumeration value="PORT-OUT"/>
+                        <xs:enumeration value="PORT-OVER"/>
+                        <xs:enumeration value="RETURN-OUT"/>
+                        <xs:enumeration value="RETURN-IN"/>
+                        <xs:enumeration value="RETURN-OVER"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="product_sub_type" type="xs:string"/>
+            <xs:element name="product_subtype" type="xs:string"/>
+            <xs:element name="product_type" type="xs:string"/>
+            <xs:element name="range">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns6:range_holder"/>
+                        <xs:element ref="ns6:dn_from"/>
+                        <xs:element ref="ns6:dn_to"/>
+                        <xs:element ref="ns6:valid_from"/>
+                        <xs:element ref="ns6:valid_to" minOccurs="0"/>
+                        <xs:element ref="ns6:network_type"/>
+                        <xs:element ref="ns6:portable"/>
+                        <xs:element ref="ns6:toll_free"/>
+                        <xs:element ref="ns6:kosher_flag"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="range_holder" type="xs:string"/>
+            <xs:element name="recipient" type="xs:string"/>
+            <xs:element name="recipient_id" type="xs:string"/>
+            <xs:element name="record_type" fixed="SPO" type="xs:string"/>
+            <xs:element name="rejection_code" type="xs:string"/>
+            <xs:element name="request_message_id" type="xs:string"/>
+            <xs:element name="request_reason_code" type="xs:string"/>
+            <xs:element name="request_reason_message" type="xs:string"/>
+            <xs:element name="request_status" type="xs:string"/>
+            <xs:element name="routing_from" type="xs:string"/>
+            <xs:element name="routing_to" type="xs:string"/>
+            <xs:element name="source_system">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="NPG"/>
+                        <xs:pattern value="BSS"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="state_code" type="xs:string"/>
+            <xs:element name="state_date" type="xs:string"/>
+            <xs:element name="state_desc" type="xs:string"/>
+            <xs:element name="state_id" type="xs:string"/>
+            <xs:element name="state_trans_code" type="xs:string"/>
+            <xs:element name="state_trans_desc" type="xs:string"/>
+            <xs:element name="subprocess_operator" type="xs:string"/>
+            <xs:element name="subprocess_parent_state_id" type="xs:string"/>
+            <xs:element name="target_system">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="NPG"/>
+                        <xs:pattern value="BSS"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="to" type="xs:string"/>
+            <xs:element name="toll_free" type="xs:string"/>
+            <xs:element name="user_id" type="xs:string"/>
+            <xs:element name="user_ps" type="xs:string"/>
+            <xs:element name="valid_from" type="xs:string"/>
+            <xs:element name="valid_to" type="xs:string"/>
+        </xs:schema>
+        <xs:schema xmlns="http://www.TELZAR.co.il/Schemas/npQueryDn" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.TELZAR.co.il/Schemas/npQueryDn" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:element name="body">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns0:source_system"/>
+                        <xs:element ref="ns0:target_system"/>
+                        <xs:element ref="ns0:message_id"/>
+                        <xs:element ref="ns0:message_send_timestamp"/>
+                        <xs:element ref="ns0:request_type"/>
+                        <xs:element ref="ns0:request_message_id"/>
+                        <xs:element ref="ns0:dn_item" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="dn_item">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns0:dn_number"/>
+                        <xs:element ref="ns0:network_id" minOccurs="0"/>
+                        <xs:element ref="ns0:is_ported" minOccurs="0"/>
+                        <xs:element ref="ns0:last_route_time" minOccurs="0"/>
+                        <xs:element ref="ns0:pnp1" minOccurs="0"/>
+                        <xs:element ref="ns0:pnp2" minOccurs="0"/>
+                        <xs:element ref="ns0:message_status"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="request">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns0:source_system"/>
+                        <xs:element ref="ns0:target_system"/>
+                        <xs:element ref="ns0:message_id"/>
+                        <xs:element ref="ns0:message_send_timestamp"/>
+                        <xs:element ref="ns0:request_type"/>
+                        <xs:element ref="ns0:dn_number" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="request_type">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="QUERY_DN"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns0:body" minOccurs="0"/>
+                        <xs:element ref="ns0:message_status"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="crm_customer_id" type="xs:string"/>
+            <xs:element name="crm_form_id" type="xs:string"/>
+            <xs:element name="crm_info_1" type="xs:string"/>
+            <xs:element name="crm_info_10" type="xs:string"/>
+            <xs:element name="crm_info_2" type="xs:string"/>
+            <xs:element name="crm_info_3" type="xs:string"/>
+            <xs:element name="crm_info_4" type="xs:string"/>
+            <xs:element name="crm_info_5" type="xs:string"/>
+            <xs:element name="crm_info_6" type="xs:string"/>
+            <xs:element name="crm_info_7" type="xs:string"/>
+            <xs:element name="crm_info_8" type="xs:string"/>
+            <xs:element name="crm_info_9" type="xs:string"/>
+            <xs:element name="crm_req_id" type="xs:string"/>
+            <xs:element name="crm_request_id" type="xs:string"/>
+            <xs:element name="crm_seq_id" type="xs:string"/>
+            <xs:element name="curr_state_code" type="xs:string"/>
+            <xs:element name="curr_state_date" type="xs:string"/>
+            <xs:element name="curr_state_desc" type="xs:string"/>
+            <xs:element name="curr_state_trans_code" type="xs:string"/>
+            <xs:element name="curr_state_trans_desc" type="xs:string"/>
+            <xs:element name="curr_status_code" type="xs:string"/>
+            <xs:element name="curr_status_desc" type="xs:string"/>
+            <xs:element name="customer_id" type="xs:string"/>
+            <xs:element name="customer_type" type="xs:string"/>
+            <xs:element name="date_from" type="xs:string"/>
+            <xs:element name="date_to" type="xs:string"/>
+            <xs:element name="delayed_request_time" type="xs:string"/>
+            <xs:element name="dn_choice">
+                <xs:complexType>
+                    <xs:choice>
+                        <xs:element ref="ns0:dn_number" minOccurs="0"/>
+                        <xs:sequence>
+                            <xs:element ref="ns0:dn_from" minOccurs="0"/>
+                            <xs:element ref="ns0:dn_to" minOccurs="0"/>
+                        </xs:sequence>
+                    </xs:choice>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="dn_from" type="xs:string"/>
+            <xs:element name="dn_number" type="xs:string"/>
+            <xs:element name="dn_number_item">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns0:dn_choice"/>
+                        <xs:element ref="ns0:dn_type"/>
+                        <xs:element ref="ns0:delayed_request_time" minOccurs="0"/>
+                        <xs:element ref="ns0:porting_time" minOccurs="0"/>
+                        <xs:element ref="ns0:crm_seq_id"/>
+                        <xs:element ref="ns0:npg_request_id" minOccurs="0"/>
+                        <xs:element ref="ns0:message_status" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="dn_to" type="xs:string"/>
+            <xs:element name="dn_type" type="xs:string"/>
+            <xs:element name="donor" type="xs:string"/>
+            <xs:element name="donor_id" type="xs:string"/>
+            <xs:element name="essential_info_1" type="xs:string"/>
+            <xs:element name="essential_info_2" type="xs:string"/>
+            <xs:element name="essential_info_3" type="xs:string"/>
+            <xs:element name="essential_info_4" type="xs:string"/>
+            <xs:element name="essential_info_5" type="xs:string"/>
+            <xs:element name="event_source_id" type="xs:string"/>
+            <xs:element name="form_id" type="xs:string"/>
+            <xs:element name="from" type="xs:string"/>
+            <xs:element name="get_active_request" type="xs:string"/>
+            <xs:element name="get_state_history" type="xs:string"/>
+            <xs:element name="identification_value" type="xs:string"/>
+            <xs:element name="identification_value_2" type="xs:string"/>
+            <xs:element name="identification_value_3" type="xs:string"/>
+            <xs:element name="interface_id" type="xs:string"/>
+            <xs:element name="is_ported" type="xs:string"/>
+            <xs:element name="kosher_flag" type="xs:string"/>
+            <xs:element name="last_route_time" type="xs:string"/>
+            <xs:element name="leading_dn" type="xs:string"/>
+            <xs:element name="leading_number" type="xs:string"/>
+            <xs:element name="lrn_code" type="xs:string"/>
+            <xs:element name="message_id" type="xs:string"/>
+            <xs:element name="message_send_timestamp" type="xs:string"/>
+            <xs:element name="message_status">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns0:request_status"/>
+                        <xs:element ref="ns0:request_reason_code" minOccurs="0"/>
+                        <xs:element ref="ns0:request_reason_message" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="message_type" type="xs:string"/>
+            <xs:element name="network_id" type="xs:string"/>
+            <xs:element name="network_type" type="xs:string"/>
+            <xs:element name="new_operator" type="xs:string"/>
+            <xs:element name="npg_request_id" type="xs:string"/>
+            <xs:element name="number_type" type="xs:string"/>
+            <xs:element name="old_operator" type="xs:string"/>
+            <xs:element name="om_system" type="xs:string"/>
+            <xs:element name="order_auto_level" type="xs:string"/>
+            <xs:element name="original_switch_ind" type="xs:string"/>
+            <xs:element name="pnp1" type="xs:string"/>
+            <xs:element name="pnp2" type="xs:string"/>
+            <xs:element name="port_date" type="xs:string"/>
+            <xs:element name="port_reason" type="xs:string"/>
+            <xs:element name="portable" type="xs:string"/>
+            <xs:element name="porting_execute_time" type="xs:string"/>
+            <xs:element name="porting_request_time" type="xs:string"/>
+            <xs:element name="porting_route_time" type="xs:string"/>
+            <xs:element name="porting_time" type="xs:string"/>
+            <xs:element name="process_state_code" type="xs:string"/>
+            <xs:element name="process_state_desc" type="xs:string"/>
+            <xs:element name="process_state_trans_code" type="xs:string"/>
+            <xs:element name="process_state_trans_desc" type="xs:string"/>
+            <xs:element name="process_status_code" type="xs:string"/>
+            <xs:element name="process_status_desc" type="xs:string"/>
+            <xs:element name="process_type">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="PORT-IN"/>
+                        <xs:enumeration value="PORT-OUT"/>
+                        <xs:enumeration value="PORT-OVER"/>
+                        <xs:enumeration value="RETURN-OUT"/>
+                        <xs:enumeration value="RETURN-IN"/>
+                        <xs:enumeration value="RETURN-OVER"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="product_sub_type" type="xs:string"/>
+            <xs:element name="product_subtype" type="xs:string"/>
+            <xs:element name="product_type" type="xs:string"/>
+            <xs:element name="range">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns0:range_holder"/>
+                        <xs:element ref="ns0:dn_from"/>
+                        <xs:element ref="ns0:dn_to"/>
+                        <xs:element ref="ns0:valid_from"/>
+                        <xs:element ref="ns0:valid_to" minOccurs="0"/>
+                        <xs:element ref="ns0:network_type"/>
+                        <xs:element ref="ns0:portable"/>
+                        <xs:element ref="ns0:toll_free"/>
+                        <xs:element ref="ns0:kosher_flag"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="range_holder" type="xs:string"/>
+            <xs:element name="recipient" type="xs:string"/>
+            <xs:element name="recipient_id" type="xs:string"/>
+            <xs:element name="record_type" fixed="SPO" type="xs:string"/>
+            <xs:element name="rejection_code" type="xs:string"/>
+            <xs:element name="request_message_id" type="xs:string"/>
+            <xs:element name="request_reason_code" type="xs:string"/>
+            <xs:element name="request_reason_message" type="xs:string"/>
+            <xs:element name="request_status" type="xs:string"/>
+            <xs:element name="routing_from" type="xs:string"/>
+            <xs:element name="routing_to" type="xs:string"/>
+            <xs:element name="source_system">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="NPG"/>
+                        <xs:pattern value="BSS"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="state_code" type="xs:string"/>
+            <xs:element name="state_date" type="xs:string"/>
+            <xs:element name="state_desc" type="xs:string"/>
+            <xs:element name="state_id" type="xs:string"/>
+            <xs:element name="state_trans_code" type="xs:string"/>
+            <xs:element name="state_trans_desc" type="xs:string"/>
+            <xs:element name="subprocess_operator" type="xs:string"/>
+            <xs:element name="subprocess_parent_state_id" type="xs:string"/>
+            <xs:element name="target_system">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="NPG"/>
+                        <xs:pattern value="BSS"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="to" type="xs:string"/>
+            <xs:element name="toll_free" type="xs:string"/>
+            <xs:element name="user_id" type="xs:string"/>
+            <xs:element name="user_ps" type="xs:string"/>
+            <xs:element name="valid_from" type="xs:string"/>
+            <xs:element name="valid_to" type="xs:string"/>
+        </xs:schema>
+        <xs:schema xmlns="http://www.TELZAR.co.il/Schemas/npPortingUpdate" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.TELZAR.co.il/Schemas/npPortingUpdate" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:element name="body">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns3:source_system"/>
+                        <xs:element ref="ns3:target_system"/>
+                        <xs:element ref="ns3:message_id"/>
+                        <xs:element ref="ns3:message_send_timestamp"/>
+                        <xs:element ref="ns3:request_type"/>
+                        <xs:element ref="ns3:request_message_id"/>
+                        <xs:element ref="ns3:crm_customer_id"/>
+                        <xs:element ref="ns3:crm_request_id"/>
+                        <xs:element ref="ns3:dn_choice"/>
+                        <xs:element ref="ns3:dn_type" minOccurs="0"/>
+                        <xs:element ref="ns3:porting_time" minOccurs="0"/>
+                        <xs:element ref="ns3:crm_seq_id"/>
+                        <xs:element ref="ns3:npg_request_id" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="request">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns3:source_system"/>
+                        <xs:element ref="ns3:target_system"/>
+                        <xs:element ref="ns3:message_id"/>
+                        <xs:element ref="ns3:message_send_timestamp"/>
+                        <xs:element ref="ns3:request_type"/>
+                        <xs:element ref="ns3:request_message_id"/>
+                        <xs:element ref="ns3:crm_customer_id"/>
+                        <xs:element ref="ns3:crm_request_id"/>
+                        <xs:element ref="ns3:dn_choice"/>
+                        <xs:element ref="ns3:dn_type" minOccurs="0"/>
+                        <xs:element ref="ns3:porting_time" minOccurs="0"/>
+                        <xs:element ref="ns3:crm_seq_id"/>
+                        <xs:element ref="ns3:npg_request_id"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="request_type">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="UPDATE"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="response">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns3:body" minOccurs="0"/>
+                        <xs:element ref="ns3:message_status"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="crm_customer_id" type="xs:string"/>
+            <xs:element name="crm_form_id" type="xs:string"/>
+            <xs:element name="crm_info_1" type="xs:string"/>
+            <xs:element name="crm_info_10" type="xs:string"/>
+            <xs:element name="crm_info_2" type="xs:string"/>
+            <xs:element name="crm_info_3" type="xs:string"/>
+            <xs:element name="crm_info_4" type="xs:string"/>
+            <xs:element name="crm_info_5" type="xs:string"/>
+            <xs:element name="crm_info_6" type="xs:string"/>
+            <xs:element name="crm_info_7" type="xs:string"/>
+            <xs:element name="crm_info_8" type="xs:string"/>
+            <xs:element name="crm_info_9" type="xs:string"/>
+            <xs:element name="crm_req_id" type="xs:string"/>
+            <xs:element name="crm_request_id" type="xs:string"/>
+            <xs:element name="crm_seq_id" type="xs:string"/>
+            <xs:element name="curr_state_code" type="xs:string"/>
+            <xs:element name="curr_state_date" type="xs:string"/>
+            <xs:element name="curr_state_desc" type="xs:string"/>
+            <xs:element name="curr_state_trans_code" type="xs:string"/>
+            <xs:element name="curr_state_trans_desc" type="xs:string"/>
+            <xs:element name="curr_status_code" type="xs:string"/>
+            <xs:element name="curr_status_desc" type="xs:string"/>
+            <xs:element name="customer_id" type="xs:string"/>
+            <xs:element name="customer_type" type="xs:string"/>
+            <xs:element name="date_from" type="xs:string"/>
+            <xs:element name="date_to" type="xs:string"/>
+            <xs:element name="delayed_request_time" type="xs:string"/>
+            <xs:element name="dn_choice">
+                <xs:complexType>
+                    <xs:choice>
+                        <xs:element ref="ns3:dn_number" minOccurs="0"/>
+                        <xs:sequence>
+                            <xs:element ref="ns3:dn_from" minOccurs="0"/>
+                            <xs:element ref="ns3:dn_to" minOccurs="0"/>
+                        </xs:sequence>
+                    </xs:choice>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="dn_from" type="xs:string"/>
+            <xs:element name="dn_number" type="xs:string"/>
+            <xs:element name="dn_number_item">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns3:dn_choice"/>
+                        <xs:element ref="ns3:dn_type"/>
+                        <xs:element ref="ns3:delayed_request_time" minOccurs="0"/>
+                        <xs:element ref="ns3:porting_time" minOccurs="0"/>
+                        <xs:element ref="ns3:crm_seq_id"/>
+                        <xs:element ref="ns3:npg_request_id" minOccurs="0"/>
+                        <xs:element ref="ns3:message_status" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="dn_to" type="xs:string"/>
+            <xs:element name="dn_type" type="xs:string"/>
+            <xs:element name="donor" type="xs:string"/>
+            <xs:element name="donor_id" type="xs:string"/>
+            <xs:element name="essential_info_1" type="xs:string"/>
+            <xs:element name="essential_info_2" type="xs:string"/>
+            <xs:element name="essential_info_3" type="xs:string"/>
+            <xs:element name="essential_info_4" type="xs:string"/>
+            <xs:element name="essential_info_5" type="xs:string"/>
+            <xs:element name="event_source_id" type="xs:string"/>
+            <xs:element name="form_id" type="xs:string"/>
+            <xs:element name="from" type="xs:string"/>
+            <xs:element name="get_active_request" type="xs:string"/>
+            <xs:element name="get_state_history" type="xs:string"/>
+            <xs:element name="identification_value" type="xs:string"/>
+            <xs:element name="identification_value_2" type="xs:string"/>
+            <xs:element name="identification_value_3" type="xs:string"/>
+            <xs:element name="interface_id" type="xs:string"/>
+            <xs:element name="is_ported" type="xs:string"/>
+            <xs:element name="kosher_flag" type="xs:string"/>
+            <xs:element name="last_route_time" type="xs:string"/>
+            <xs:element name="leading_dn" type="xs:string"/>
+            <xs:element name="leading_number" type="xs:string"/>
+            <xs:element name="lrn_code" type="xs:string"/>
+            <xs:element name="message_id" type="xs:string"/>
+            <xs:element name="message_send_timestamp" type="xs:string"/>
+            <xs:element name="message_status">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns3:request_status"/>
+                        <xs:element ref="ns3:request_reason_code" minOccurs="0"/>
+                        <xs:element ref="ns3:request_reason_message" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="message_type" type="xs:string"/>
+            <xs:element name="network_id" type="xs:string"/>
+            <xs:element name="network_type" type="xs:string"/>
+            <xs:element name="new_operator" type="xs:string"/>
+            <xs:element name="npg_request_id" type="xs:string"/>
+            <xs:element name="number_type" type="xs:string"/>
+            <xs:element name="old_operator" type="xs:string"/>
+            <xs:element name="om_system" type="xs:string"/>
+            <xs:element name="order_auto_level" type="xs:string"/>
+            <xs:element name="original_switch_ind" type="xs:string"/>
+            <xs:element name="pnp1" type="xs:string"/>
+            <xs:element name="pnp2" type="xs:string"/>
+            <xs:element name="port_date" type="xs:string"/>
+            <xs:element name="port_reason" type="xs:string"/>
+            <xs:element name="portable" type="xs:string"/>
+            <xs:element name="porting_execute_time" type="xs:string"/>
+            <xs:element name="porting_request_time" type="xs:string"/>
+            <xs:element name="porting_route_time" type="xs:string"/>
+            <xs:element name="porting_time" type="xs:string"/>
+            <xs:element name="process_state_code" type="xs:string"/>
+            <xs:element name="process_state_desc" type="xs:string"/>
+            <xs:element name="process_state_trans_code" type="xs:string"/>
+            <xs:element name="process_state_trans_desc" type="xs:string"/>
+            <xs:element name="process_status_code" type="xs:string"/>
+            <xs:element name="process_status_desc" type="xs:string"/>
+            <xs:element name="process_type">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="PORT-IN"/>
+                        <xs:enumeration value="PORT-OUT"/>
+                        <xs:enumeration value="PORT-OVER"/>
+                        <xs:enumeration value="RETURN-OUT"/>
+                        <xs:enumeration value="RETURN-IN"/>
+                        <xs:enumeration value="RETURN-OVER"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="product_sub_type" type="xs:string"/>
+            <xs:element name="product_subtype" type="xs:string"/>
+            <xs:element name="product_type" type="xs:string"/>
+            <xs:element name="range">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns3:range_holder"/>
+                        <xs:element ref="ns3:dn_from"/>
+                        <xs:element ref="ns3:dn_to"/>
+                        <xs:element ref="ns3:valid_from"/>
+                        <xs:element ref="ns3:valid_to" minOccurs="0"/>
+                        <xs:element ref="ns3:network_type"/>
+                        <xs:element ref="ns3:portable"/>
+                        <xs:element ref="ns3:toll_free"/>
+                        <xs:element ref="ns3:kosher_flag"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="range_holder" type="xs:string"/>
+            <xs:element name="recipient" type="xs:string"/>
+            <xs:element name="recipient_id" type="xs:string"/>
+            <xs:element name="record_type" fixed="SPO" type="xs:string"/>
+            <xs:element name="rejection_code" type="xs:string"/>
+            <xs:element name="request_message_id" type="xs:string"/>
+            <xs:element name="request_reason_code" type="xs:string"/>
+            <xs:element name="request_reason_message" type="xs:string"/>
+            <xs:element name="request_status" type="xs:string"/>
+            <xs:element name="routing_from" type="xs:string"/>
+            <xs:element name="routing_to" type="xs:string"/>
+            <xs:element name="source_system">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="NPG"/>
+                        <xs:pattern value="BSS"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="state_code" type="xs:string"/>
+            <xs:element name="state_date" type="xs:string"/>
+            <xs:element name="state_desc" type="xs:string"/>
+            <xs:element name="state_id" type="xs:string"/>
+            <xs:element name="state_trans_code" type="xs:string"/>
+            <xs:element name="state_trans_desc" type="xs:string"/>
+            <xs:element name="subprocess_operator" type="xs:string"/>
+            <xs:element name="subprocess_parent_state_id" type="xs:string"/>
+            <xs:element name="target_system">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="NPG"/>
+                        <xs:pattern value="BSS"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="to" type="xs:string"/>
+            <xs:element name="toll_free" type="xs:string"/>
+            <xs:element name="user_id" type="xs:string"/>
+            <xs:element name="user_ps" type="xs:string"/>
+            <xs:element name="valid_from" type="xs:string"/>
+            <xs:element name="valid_to" type="xs:string"/>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:service name="NPG-Services">
+        <wsdl:port name="NPG-PortTypesEndpoint" binding="tns:NPG-PortTypesEndpointBinding">
+            <soap:address location="http://10.10.190.51:19616/Local%2520NPG/TELZAR/Comm%2520Layer/NPG-Services.serviceagent/NPG-PortTypesEndpoint"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsdl:portType name="NPG-PortTypes">
+        <wsdl:operation name="npQueryDn">
+            <wsdl:input message="tns:TnpQueryDn"/>
+            <wsdl:output message="tns:TnpQueryDnResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="npReturnOut">
+            <wsdl:input message="tns:TnpReturnOut"/>
+            <wsdl:output message="tns:TnpReturnOutResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="npExecutionResponse">
+            <wsdl:input message="tns:TnpExecutionResponseReq"/>
+            <wsdl:output message="tns:TnpExecutionResponseResp"/>
+        </wsdl:operation>
+        <wsdl:operation name="npPortingUpdate">
+            <wsdl:input message="tns:TnpPortingUpdate"/>
+            <wsdl:output message="tns:TnpPortingUpdateResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="npPortingRequest">
+            <wsdl:input message="tns:TnpPortingRequest"/>
+            <wsdl:output message="tns:TnpPortingRequestResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="npQueryProcess">
+            <wsdl:input message="tns:TnpQueryProcess"/>
+            <wsdl:output message="tns:TnpQueryProcessResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="npPortingCancel">
+            <wsdl:input message="tns:TnpPortingCancel"/>
+            <wsdl:output message="tns:TnpPortingCancelResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="NPG-PortTypesEndpointBinding" type="tns:NPG-PortTypes">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="npQueryDn">
+            <soap:operation style="document" soapAction="npQueryDn"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="request"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="response"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="npReturnOut">
+            <soap:operation style="document" soapAction="npReturnOut"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="request"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="response"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="npExecutionResponse">
+            <soap:operation style="document" soapAction="npExecutionResponse"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="request"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="response"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="npPortingUpdate">
+            <soap:operation style="document" soapAction="npPortingUpdate"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="request"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="response"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="npPortingRequest">
+            <soap:operation style="document" soapAction="npPortingRequest"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="request"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="response"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="npQueryProcess">
+            <soap:operation style="document" soapAction="npQueryProcess"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="request"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="response"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="npPortingCancel">
+            <soap:operation style="document" soapAction="npPortingCancel"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="request"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="response"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="TnpQueryDn">
+        <wsdl:part name="request" element="ns0:request"/>
+    </wsdl:message>
+    <wsdl:message name="TnpQueryDnResponse">
+        <wsdl:part name="response" element="ns0:response"/>
+    </wsdl:message>
+    <wsdl:message name="TnpReturnOut">
+        <wsdl:part name="request" element="ns1:request"/>
+    </wsdl:message>
+    <wsdl:message name="TnpReturnOutResponse">
+        <wsdl:part name="response" element="ns1:response"/>
+    </wsdl:message>
+    <wsdl:message name="TnpExecutionResponseReq">
+        <wsdl:part name="request" element="ns2:Request"/>
+    </wsdl:message>
+    <wsdl:message name="TnpExecutionResponseResp">
+        <wsdl:part name="response" element="ns2:Response"/>
+    </wsdl:message>
+    <wsdl:message name="TnpPortingUpdate">
+        <wsdl:part name="request" element="ns3:request"/>
+    </wsdl:message>
+    <wsdl:message name="TnpPortingUpdateResponse">
+        <wsdl:part name="response" element="ns3:response"/>
+    </wsdl:message>
+    <wsdl:message name="TnpPortingRequest">
+        <wsdl:part name="request" element="ns4:request"/>
+    </wsdl:message>
+    <wsdl:message name="TnpPortingRequestResponse">
+        <wsdl:part name="response" element="ns4:response"/>
+    </wsdl:message>
+    <wsdl:message name="TnpQueryProcess">
+        <wsdl:part name="request" element="ns5:request"/>
+    </wsdl:message>
+    <wsdl:message name="TnpQueryProcessResponse">
+        <wsdl:part name="response" element="ns5:response"/>
+    </wsdl:message>
+    <wsdl:message name="TnpPortingCancel">
+        <wsdl:part name="request" element="ns6:request"/>
+    </wsdl:message>
+    <wsdl:message name="TnpPortingCancelResponse">
+        <wsdl:part name="response" element="ns6:response"/>
+    </wsdl:message>
+</wsdl:definitions>

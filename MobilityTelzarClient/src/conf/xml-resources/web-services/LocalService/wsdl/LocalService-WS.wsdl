@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by TIBCO WSDL-->
+<wsdl:definitions xmlns:ns0="http://www.TELZAR.co.il/LocalService/npExecutionResponse" xmlns:ns1="http://www.TELZAR.co.il/LocalService/npStartPortIn" xmlns:ns2="http://www.TELZAR.co.il/LocalService/npCancelPortIn" xmlns:ns3="http://www.TELZAR.co.il/LocalService/npReturnOut" xmlns:tns="http://npg.namespaces.com/LocalService/TELZAR-ITNPGService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="Untitled" targetNamespace="http://npg.namespaces.com/LocalService/TELZAR-ITNPGService">
+    <wsdl:types>
+	<xs:schema xmlns="http://www.TELZAR.co.il/LocalService/npExecutionResponse" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.TELZAR.co.il/LocalService/npExecutionResponse" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:element name="Request">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns0:source_system"/>
+                        <xs:element ref="ns0:target_system"/>
+                        <xs:element ref="ns0:message_id" minOccurs="0"/>
+                        <xs:element ref="ns0:message_send_timestamp"/>
+                        <xs:element ref="ns0:request_type" minOccurs="0"/>
+                        <xs:element ref="ns0:crm_customer_id" minOccurs="0"/>
+                        <xs:element ref="ns0:crm_request_id" minOccurs="0"/>
+                        <xs:element ref="ns0:dn_choice"/>
+                        <xs:element ref="ns0:dn_type" minOccurs="0"/>
+                        <xs:element ref="ns0:new_operator" minOccurs="0"/>
+                        <xs:element ref="ns0:crm_seq_id" minOccurs="0"/>
+                        <xs:element ref="ns0:npg_request_id"/>
+                        <xs:element ref="ns0:action" minOccurs="0"/>
+                        <xs:element ref="ns0:message_status"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Response">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns0:message_status"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="action">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="ACTIVATE"/>
+                        <xs:pattern value="DEACTIVATE"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="request_type">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="EXECUTE"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="crm_customer_id" type="xs:string"/>
+            <xs:element name="crm_request_id" type="xs:string"/>
+            <xs:element name="crm_seq_id" type="xs:string"/>
+            <xs:element name="dn_choice">
+                <xs:complexType>
+                    <xs:choice>
+                        <xs:element ref="ns0:dn_number" minOccurs="0"/>
+                        <xs:sequence>
+                            <xs:element ref="ns0:dn_from" minOccurs="0"/>
+                            <xs:element ref="ns0:dn_to" minOccurs="0"/>
+                        </xs:sequence>
+                    </xs:choice>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="dn_from" type="xs:string"/>
+            <xs:element name="dn_number" type="xs:string"/>
+            <xs:element name="dn_to" type="xs:string"/>
+            <xs:element name="dn_type" type="xs:string"/>
+            <xs:element name="message_id" type="xs:string"/>
+            <xs:element name="message_send_timestamp" type="xs:string"/>
+            <xs:element name="message_status">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns0:request_status"/>
+                        <xs:element ref="ns0:request_reason_code" minOccurs="0"/>
+                        <xs:element ref="ns0:request_reason_message" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="new_operator" type="xs:string"/>
+            <xs:element name="npg_request_id" type="xs:string"/>
+            <xs:element name="request_message_id" type="xs:string"/>
+            <xs:element name="request_reason_code" type="xs:string"/>
+            <xs:element name="request_reason_message" type="xs:string"/>
+            <xs:element name="request_status" type="xs:string"/>
+            <xs:element name="source_system"> 
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="NPG"/>
+                        <xs:pattern value="BSS"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="target_system">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="NPG"/>
+                        <xs:pattern value="BSS"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:schema>
+	<xs:schema xmlns="http://www.TELZAR.co.il/LocalService/npStartPortIn" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.TELZAR.co.il/LocalService/npStartPortIn" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:element name="Request">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns1:source_system"/>
+                        <xs:element ref="ns1:target_system"/>
+                        <xs:element ref="ns1:message_id" />
+			<xs:element ref="ns1:message_send_timestamp" />
+			<xs:element ref="ns1:request_type"/>
+                        <xs:element ref="ns1:crm_customer_id"/>
+                        <xs:element ref="ns1:crm_request_id"/>
+                        <xs:element ref="ns1:donor_id"/>
+                        <xs:element ref="ns1:identification_value"/>
+                        <xs:element ref="ns1:identification_value_2" minOccurs="0"/>
+                        <xs:element ref="ns1:identification_value_3" minOccurs="0"/>
+                        <xs:element ref="ns1:dn_number_item" /> 
+                        <xs:element ref="ns1:sim1" minOccurs="0"/>
+                        <xs:element ref="ns1:sim2" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="source_system"> 
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="NPG"/>
+                        <xs:pattern value="BSS"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="target_system">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="NPG"/>
+                        <xs:pattern value="BSS"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="sim1" type="xs:string"/>
+            <xs:element name="sim2" type="xs:string"/>
+            <xs:element name="message_id" type="xs:string"/>
+            <xs:element name="message_send_timestamp" type="xs:string"/>
+            <xs:element name="request_type">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="PIR"/>
+                        <xs:pattern value="PVC"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="crm_customer_id" type="xs:string"/>
+            <xs:element name="crm_request_id" type="xs:string"/>
+            <xs:element name="donor_id" type="xs:string"/>
+            <xs:element name="identification_value" type="xs:string"/>
+            <xs:element name="identification_value_2" type="xs:string"/>
+            <xs:element name="identification_value_3" type="xs:string"/>
+			<xs:element name="dn_number_item">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns1:dn_choice"/>
+                        <xs:element ref="ns1:dn_type"/>
+                        <xs:element ref="ns1:delayed_request_time" minOccurs="0"/>
+                        <xs:element ref="ns1:porting_time" minOccurs="0"/>
+                        <xs:element ref="ns1:crm_seq_id"/>
+                        <xs:element ref="ns1:npg_request_id" minOccurs="0"/>
+                        <xs:element ref="ns1:message_status" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>		
+			<xs:element name="dn_type" type="xs:string"/>	
+			<xs:element name="delayed_request_time" type="xs:string"/>
+			<xs:element name="porting_time" type="xs:string"/>
+			<xs:element name="crm_seq_id" type="xs:string"/>
+			<xs:element name="npg_request_id" type="xs:string"/>
+			<xs:element name="dn_choice">
+                <xs:complexType>
+                    <xs:choice>
+                        <xs:element ref="ns1:dn_number" minOccurs="0"/>
+                        <xs:sequence>
+                            <xs:element ref="ns1:dn_from" minOccurs="0"/>
+                            <xs:element ref="ns1:dn_to" minOccurs="0"/>
+                        </xs:sequence>
+                    </xs:choice>
+                </xs:complexType>
+            </xs:element>
+			<xs:element name="dn_from" type="xs:string"/>
+            <xs:element name="dn_number" type="xs:string"/>
+            <xs:element name="dn_to" type="xs:string"/>		
+			<xs:element name="message_status">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns1:request_status"/>
+                        <xs:element ref="ns1:request_reason_code" minOccurs="0"/>
+                        <xs:element ref="ns1:request_reason_message" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="request_reason_code" type="xs:string"/>
+            <xs:element name="request_reason_message" type="xs:string"/>
+            <xs:element name="request_status" type="xs:string"/>			
+			<xs:element name="Response">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns1:message_status"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+			<xs:element name="status" type="xs:string"/>
+        </xs:schema>
+	<xs:schema xmlns="http://www.TELZAR.co.il/LocalService/npCancelPortIn" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.TELZAR.co.il/LocalService/npCancelPortIn" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:element name="Request">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns2:source_system"/>
+                        <xs:element ref="ns2:target_system"/>
+                        <xs:element ref="ns2:message_id"/>
+                        <xs:element ref="ns2:message_send_timestamp"/>
+                        <xs:element ref="ns2:request_type"/>
+                        <xs:element ref="ns2:crm_customer_id"/>
+                        <xs:element ref="ns2:crm_request_id"/>
+                        <xs:element ref="ns2:dn_choice"/>
+                        <xs:element ref="ns2:dn_type"/>
+                        <xs:element ref="ns2:crm_seq_id"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="request_type">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="CANCEL"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Response">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns2:message_status"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="message_id" type="xs:string"/>
+            <xs:element name="message_send_timestamp" type="xs:string"/>
+			<xs:element name="crm_customer_id" type="xs:string"/>
+            <xs:element name="crm_request_id" type="xs:string"/>
+			<xs:element name="crm_seq_id" type="xs:string"/>
+            <xs:element name="dn_choice">
+                <xs:complexType>
+                    <xs:choice>
+                        <xs:element ref="ns2:dn_number" minOccurs="0"/>
+                        <xs:sequence>
+                            <xs:element ref="ns2:dn_from" minOccurs="0"/>
+                            <xs:element ref="ns2:dn_to" minOccurs="0"/>
+                        </xs:sequence>
+                    </xs:choice>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="dn_from" type="xs:string"/>
+            <xs:element name="dn_number" type="xs:string"/>
+            <xs:element name="dn_to" type="xs:string"/>
+            <xs:element name="dn_type" type="xs:string"/>
+            <xs:element name="message_status">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns2:request_status"/>
+                        <xs:element ref="ns2:request_reason_code" minOccurs="0"/>
+                        <xs:element ref="ns2:request_reason_message" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="internal_request_id" type="xs:string"/>
+            <xs:element name="request_reason_code" type="xs:string"/>
+            <xs:element name="request_reason_message" type="xs:string"/>
+            <xs:element name="request_status" type="xs:string"/>
+            <xs:element name="source_system">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="NPG"/>
+                        <xs:pattern value="BSS"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="target_system">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="NPG"/>
+                        <xs:pattern value="BSS"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+         </xs:schema>
+        <xs:schema xmlns="http://www.TELZAR.co.il/LocalService/npReturnOut" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.TELZAR.co.il/LocalService/npReturnOut" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <xs:element name="body">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns3:source_system"/>
+                        <xs:element ref="ns3:target_system"/>
+                        <xs:element ref="ns3:message_id"/>
+                        <xs:element ref="ns3:message_send_timestamp"/>
+                        <xs:element ref="ns3:request_type"/>
+                        <xs:element ref="ns3:request_message_id"/>
+                        <xs:element ref="ns3:dn_item" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="request_message_id" type="xs:string"/>
+            <xs:element name="dn_item">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns3:dn_number"/>
+                        <xs:element ref="ns3:npg_request_id"/>
+                        <xs:element ref="ns3:message_status"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Request">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns3:source_system"/>
+                        <xs:element ref="ns3:target_system"/>
+                        <xs:element ref="ns3:message_id"/>
+                        <xs:element ref="ns3:message_send_timestamp"/>
+                        <xs:element ref="ns3:request_type"/>
+                        <xs:element ref="ns3:dn_number" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="source_system">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="NPG"/>
+                        <xs:pattern value="BSS"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="target_system">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="NPG"/>
+                        <xs:pattern value="BSS"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="request_type">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="RETURN"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Response">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns3:body" minOccurs="0"/>
+                        <xs:element ref="ns3:message_status"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="dn_from" type="xs:string"/>
+            <xs:element name="dn_number" type="xs:string"/>
+            <xs:element name="delayed_request_time" type="xs:string"/>
+            <xs:element name="porting_time" type="xs:string"/>
+            <xs:element name="crm_seq_id" type="xs:string"/>
+            <xs:element name="dn_to" type="xs:string"/>
+            <xs:element name="dn_type" type="xs:string"/>
+            <xs:element name="message_id" type="xs:string"/>
+            <xs:element name="message_send_timestamp" type="xs:string"/>
+            <xs:element name="message_status">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="ns3:request_status"/>
+                        <xs:element ref="ns3:request_reason_code" minOccurs="0"/>
+                        <xs:element ref="ns3:request_reason_message" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="npg_request_id" type="xs:string"/>
+            <xs:element name="request_reason_code" type="xs:string"/>
+            <xs:element name="request_reason_message" type="xs:string"/>
+            <xs:element name="request_status" type="xs:string"/>
+        </xs:schema> 
+    </wsdl:types>
+    <wsdl:service name="LocalService">
+        <wsdl:port name="LocalService-PortTypesEndpoint" binding="tns:LocalService-PortTypesEndpointBinding">
+            <soap:address location="http://localhost:19091/LocalService-PortTypesEndpoint"/>
+        </wsdl:port>
+    </wsdl:service>
+    <wsdl:portType name="LocalService-PortTypes">
+        <wsdl:operation name="npExecutionResponse">
+            <wsdl:input message="tns:TnpExecutionResponseReq"/>
+            <wsdl:output message="tns:TnpExecutionResponseResp"/>
+        </wsdl:operation>
+	<wsdl:operation name="npStartPortIn">
+            <wsdl:input message="tns:TnpStartPortInReq"/>
+            <wsdl:output message="tns:TnpStartPortInResp"/>
+        </wsdl:operation>
+	<wsdl:operation name="npCancelPortIn">
+            <wsdl:input message="tns:TnpCancelPortInReq"/>
+            <wsdl:output message="tns:TnpCancelPortInResp"/>
+        </wsdl:operation>
+        <wsdl:operation name="npReturnOut">
+            <wsdl:input message="tns:TnpReturnOutReq"/>
+            <wsdl:output message="tns:TnpReturnOutResp"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="LocalService-PortTypesEndpointBinding" type="tns:LocalService-PortTypes">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="npExecutionResponse">
+            <soap:operation style="document" soapAction="npExecutionResponse"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="request"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="response"/>
+            </wsdl:output>
+        </wsdl:operation>
+	<wsdl:operation name="npStartPortIn">
+            <soap:operation style="document" soapAction="npStartPortIn"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="request"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="response"/>
+            </wsdl:output>
+        </wsdl:operation>
+	<wsdl:operation name="npCancelPortIn">
+            <soap:operation style="document" soapAction="npCancelPortIn"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="request"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="response"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="npReturnOut">
+            <soap:operation style="document" soapAction="npReturnOut"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="request"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="response"/>
+            </wsdl:output>
+        </wsdl:operation>
+	</wsdl:binding>
+    <wsdl:message name="TnpExecutionResponseReq">
+        <wsdl:part name="request" element="ns0:Request"/>
+    </wsdl:message>
+    <wsdl:message name="TnpExecutionResponseResp">
+        <wsdl:part name="response" element="ns0:Response"/>
+    </wsdl:message>
+    <wsdl:message name="TnpStartPortInReq">
+        <wsdl:part name="request" element="ns1:Request"/>
+    </wsdl:message>
+    <wsdl:message name="TnpStartPortInResp">
+        <wsdl:part name="response" element="ns1:Response"/>
+    </wsdl:message>
+    <wsdl:message name="TnpCancelPortInReq">
+        <wsdl:part name="request" element="ns2:Request"/>
+    </wsdl:message>
+    <wsdl:message name="TnpCancelPortInResp">
+		<wsdl:part name="response" element="ns2:Response"/>
+    </wsdl:message>
+    <wsdl:message name="TnpReturnOutReq">
+        <wsdl:part name="request" element="ns3:Request"/>
+    </wsdl:message>
+    <wsdl:message name="TnpReturnOutResp">
+		<wsdl:part name="response" element="ns3:Response"/>
+    </wsdl:message>
+</wsdl:definitions>

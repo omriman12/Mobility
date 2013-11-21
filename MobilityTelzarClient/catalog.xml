@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/opt/npg-app1.wsdl" uri="src/conf/xml-resources/web-service-references/npg-app1/wsdl/npg-app1.wsdl"/>
+</catalog>
